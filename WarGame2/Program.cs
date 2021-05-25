@@ -73,12 +73,14 @@ namespace WarGame2
                 
                 int r = rand.Next(playerDeck.Count);
                 string card = playerDeck[r];
-                Console.WriteLine(card);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($"{name}: {card}");
                 
 
                 r = rand.Next(CPUDeck.Count);
                 string card2 = CPUDeck[r];
-                Console.WriteLine(card2);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"CPU: {card2}");
 
                 int playerPoint = Point(card);
                 int CPUPoint = Point(card2);
@@ -104,7 +106,9 @@ namespace WarGame2
                     CPUDeck.Add(card);
                     playerDeck.Remove(card);
                 }
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Cards left for {name}: {playerDeck.Count}  -  CPU: {CPUDeck.Count}");
+                Console.WriteLine();
                 round++;
                 Console.ReadKey();
             }
